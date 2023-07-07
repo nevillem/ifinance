@@ -1,0 +1,266 @@
+# Fix for Apache AUTHORIZATION http header as it is stripped by default for security and should be
+# enabled explicity when needed
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+SetEnvIf authorization_token .+ HTTP_AUTHORIZATION=$0
+SetEnvIf Content-Type .+ CONTENT_TYPE=$0
+Header unset X-Powered-By
+# Header unset Vary
+# Header unset Content-Encoding
+# Header set X-XSS-Protection "1; mode=block"
+# Header always set X-Frame-Options "DENY"
+#order deny allow
+#allow from all
+Options -Indexes
+
+RewriteEngine On    # Turn on the rewriting engine
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Swagger Control
+RewriteRule    ^apis$      documentation/api.php      [L]    # Handle apis structure requests
+
+# Authentication sacco
+RewriteRule    ^sessions/([0-9]+)$          controller/Login-api.php?sessionid=$1    [L]    # Handle session id requests
+RewriteRule    ^sessions$                   controller/Login-api.php      [L]    # Handle login requests
+# ussd
+RewriteRule    ^ussd$                   controller/ussd-channel.php      [L]    # Handle login requests
+RewriteRule    ^multisms$                   controller/sendnewaccount.php      [L]    # Handle login requests
+RewriteRule    ^ipn$                   controller/deposit_ipn.php      [L]    # Handle deposit requests
+
+# Authentication user
+RewriteRule    ^usersession/([0-9]+)$   controller/Users-authentication-api.php?sessionid=$1    [L]    # Handle session id requests
+RewriteRule    ^usersession$      controller/Users-authentication-api.php      [L]    # Handle user login requests
+#general admin irembo
+RewriteRule    ^generaladmin$      controller/Super-admin-login.php      [L]    # Handle user login requests
+RewriteRule    ^generaladmin/([0-9]+)$      controller/Super-admin-login.php?sessionid=$1      [L]    # Handle user login requests
+#register sacco
+RewriteRule    ^allsaccos$      controller/Admin-register-sacco.php      [L]    # Handle user login requests
+
+# Auth create sacco
+RewriteRule    ^signup/mask/system/one$      controller/Register-api.php      [L]    # Handle saccos registration requests
+RewriteRule    ^verify$      controller/Verification-api.php      [L]    # Handle saccos verification requests
+RewriteRule    ^sendsms$      controller/send_sms.php      [L]    # Handle sms requests
+RewriteRule    ^sendemail$      controller/send_emails.php      [L]    # Handle sms requests
+
+# saccos
+RewriteRule    ^saccos$      controller/Saccos-api.php      [L]    # Handle saccos verification requests
+RewriteRule    ^saccos/([a-z-A-Z-]*)$      controller/Saccos-api.php?password=$1      [L,QSA]    # Handle saccos verification requests
+
+# Branches
+RewriteRule    ^branches/([0-9]+)$          controller/Branches-api.php?branchid=$1    [L]    # Handle Branch id requests
+RewriteRule    ^branches$                 controller/Branches-api.php   [L]    # Handle Branch requests
+RewriteRule    ^branches/inactive$        controller/Branches-api.php?status=inactive    [L]    # Handle branch get inactive status requests
+RewriteRule    ^branches/page/([0-9]+)$     controller/Branches-api.php?page=$1    [L]    # Handle branch page requests
+
+#create users
+RewriteRule    ^users$                   controller/Users.php     [L]    # Handle user requests
+RewriteRule    ^users/([0-9]+)$                   controller/Users.php?userid=$1     [L]    # Handle user requests
+RewriteRule    ^user$                   controller/Users-update.php         [L]    # Handle user requests
+
+#members
+RewriteRule    ^members$                     controller/Members-api.php     [L]    # Handle member requests
+RewriteRule    ^members/([0-9]+)$            controller/Members-api.php?memberid=$1     [L]    # Handle member requests
+RewriteRule    ^groups$                     controller/Group-api.php     [L]    # Handle member requests
+RewriteRule    ^groups/([0-9]+)$               controller/Group-api.php?groupid=$1     [L]    # Handle member requests
+RewriteRule    ^saccomembers$                controller/Members-api-sacco.php     [L]    # Handle  requests
+RewriteRule    ^dashboard$                   controller/dashboard-api.php     [L]    # Handle requests
+
+# Images
+RewriteRule    ^members/([0-9]+)/images/([0-9]+)/attributes$    controller/Images-api.php?memberid=$1&imageid=$2&attributes=true    [L]    # Handle image id requests for image metadata
+RewriteRule    ^members/([0-9]+)/images/([0-9]+)$               controller/Images-api.php?memberid=$1&imageid=$2    [L]    # Handle image id requests
+RewriteRule    ^members/([0-9]+)/images$                        controller/Images-api.php?memberid=$1    [L]    # Handle image requests
+
+# switch case
+# settings cases
+RewriteRule    ^settings/([a-z-A-Z-]*)$               controller/settings-api.php?setting=$1   [L,QSA]    # Handle api requests
+RewriteRule    ^settings/([a-z-A-Z-]*)/([0-9]+)$        controller/settings-api.php?setting=$1&value=$2   [L,QSA]    # Handle  api requests
+RewriteRule    ^settings/([a-z-A-Z-]*)/([a-z-A-Z-]*)$     controller/settings-api.php?setting=$1&type=$2   [L,QSA]    # Handle  api requests
+
+# settings user
+RewriteRule    ^setting/([a-z-A-Z-]*)$               controller/settings-user-api.php?setting=$1   [L,QSA]    # Handle api requests
+RewriteRule    ^setting/([a-z-A-Z-]*)/([0-9]+)$        controller/settings-user-api.php?setting=$1&value=$2   [L,QSA]    # Handle  api requests
+RewriteRule    ^setting/([a-z-A-Z-]*)/([a-z-A-Z-]*)$     controller/settings-user-api.php?setting=$1&type=$2   [L,QSA]    # Handle  api requests
+
+# users
+RewriteRule    ^udashboard$                   controller/dashboard-api-user.php     [L]    # Handle api requests
+#communication
+RewriteRule    ^communication/([a-z-A-Z-]*)$               controller/communication-api.php?type=$1   [L,QSA]    # Handle api requests
+RewriteRule    ^emails$                  controller/getallemails.php   [L]    # Handle api requests
+# activity
+RewriteRule    ^activity$               controller/log-activity-api.php   [L]    # Handle  api requests
+RewriteRule    ^activityuser$               controller/log-activity-api-user.php   [L]    # Handle  api requests
+RewriteRule    ^logos$               controller/saccoLogo.php   [L]    # Handle  api requests
+RewriteRule    ^getmemberreport$               controller/getmembersbyuser.php  [L]    # Handle  api requests
+
+# despoit controller
+RewriteRule    ^deposit$               controller/deposit-transactions-controller.php   [L]    # Handle  api requests
+RewriteRule    ^deposit/([0-9]+)$               controller/deposit-transactions-controller.php?transactionid=$1   [L,QSA]    # Handle  api requests
+RewriteRule    ^deposit-manager$               controller/deposit-transactions-controller-manager.php   [L]    # Handle  api requests
+RewriteRule    ^deposit-manager/([0-9]+)$               controller/deposit-transactions-controller-manager.php?transactionid=$1   [L]    # Handle  api requests
+RewriteRule    ^depositgroup$               controller/group-deposit-transactions-controller.php   [L]    # Handle  api requests
+RewriteRule    ^depositgroup/([0-9]+)$               controller/group-deposit-transactions-controller.php?transactionid=$1   [L]    # Handle  api requests
+RewriteRule    ^depositgroup-manager$               controller/group-deposit-transactions-manager.php   [L]    # Handle  api requests
+RewriteRule    ^depositgroup-manager/([0-9]+)$               controller/group-deposit-transactions-manager.php?transactionid=$1   [L]    # Handle  api requests
+
+# withdraw controller
+RewriteRule    ^withdraw$               controller/withdraw-transactions-controller.php   [L]    # Handle  api requests
+RewriteRule    ^withdraw/([0-9]+)$               controller/withdraw-transactions-controller.php?transactionid=$1   [L]    # Handle  api requests
+RewriteRule    ^withdraw-manager$               controller/withdraw-transactions-controller-manager.php   [L]    # Handle  api requests
+RewriteRule    ^withdraw-manager/([0-9]+)$               controller/withdraw-transactions-controller-manager.php?transactionid=$1   [L]    # Handle  api requests
+#withdraw client to client
+RewriteRule    ^withdrawclienttoclient$               controller/Transfer-client-to-client-transactions.php   [L]    # Handle  api requests
+RewriteRule    ^withdrawclienttoclient/([0-9]+)$               controller/Transfer-client-to-client-transactions.php?clienttransid=$1   [L]    # Handle  api requests
+#withdraw client to group
+RewriteRule    ^withdrawclienttogroup$               controller/Transfer-client-to-group-transactions.php   [L]    # Handle  api requests
+RewriteRule    ^withdrawclienttogroup/([0-9]+)$               controller/Transfer-client-to-group-transactions.php?clienttransid=$1   [L]    # Handle  api requests
+
+# fixed depositf
+RewriteRule    ^deposit-fixed$               controller/fixed-transactions-controller.php   [L]    # Handle  api requests
+RewriteRule    ^deposit-fixed/([0-9]+)$               controller/fixed-transactions-controller.php?transactionid=$1   [L]    # Handle  api requests
+
+# testing url
+RewriteRule    ^test$               controller/testing.php   [L]    # Handle  api requests
+# information
+RewriteRule    ^information$            controller/saccoInformationUser.php   [L]    # Handle api requests
+# password
+RewriteRule    ^userpassword$        controller/Users-Pass-api.php      [L]    # Handle saccos verification requests
+RewriteRule    ^userpin$             controller/Users-Pass-api-pin.php      [L]    # Handle saccos verification requests
+# compuslory saving
+RewriteRule    ^compuslory$        controller/compuslory-transactions-controller.php      [L]    # Handle saccos verification requests
+# account statement
+RewriteRule    ^statement/([0-9]+)$         controller/account-statment-controller.php?accountid=$1      [L]    # Handle statement requests
+# schedule amonization
+RewriteRule    ^amortization$         controller/loans-schedule-api.php      [L]    # Handle statement requests
+# loan applications
+RewriteRule    ^applications/([0-9]+)$          controller/loans-application-api.php?loanid=$1    [L]    # Handle Branch id requests
+RewriteRule    ^applications$                 controller/loans-application-api.php   [L]    # Handle Branch requests
+RewriteRule    ^applications-manager$                 controller/loans-application-api-manager.php   [L]    # Handle Branch requests
+RewriteRule    ^applications-manager/([0-9]+)$          controller/loans-application-api-manager.php?loanid=$1    [L]    # Handle Branch id requests
+RewriteRule    ^groupapplication-manager$                                  controller/Group-loans-application-manager-api.php [L] # Handle  api requests
+RewriteRule    ^groupapplication-manager/([0-9]+)$                  controller/Group-loans-application-manager-api.php?loanid=$1 [L] # Handle  api requests
+RewriteRule    ^groupapplication$                                  controller/Group-loans-application-api.php [L] # Handle  api requests
+RewriteRule    ^groupapplication/([0-9]+)$                  controller/Group-loans-application-api.php?loanid=$1 [L] # Handle  api requests
+
+#collateral
+RewriteRule    ^collateral/([0-9]+)$       controller/Collateral-controller-api.php?collateralid=$1   [L]    # Handle Branch requests
+RewriteRule    ^collateral$                 controller/Collateral-controller-api.php   [L]    # Handle Branch requests
+RewriteRule    ^collateral-manager/([0-9]+)$                 controller/Manager-collateral-controller-api.php?collateralid=$1   [L]    # Handle Branch requests
+RewriteRule    ^collateral-manager$                 controller/Manager-collateral-controller-api.php   [L]    # Handle Branch requests
+RewriteRule    ^groupcollateral/([0-9]+)$       controller/Group-collateral-controller-api.php?collateralid=$1   [L]    # Handle Branch requests
+RewriteRule    ^groupcollateral$                 controller/Group-collateral-controller-api.php   [L]    # Handle Branch requests
+RewriteRule    ^groupcollateral-manager/([0-9]+)$        controller/Manager-group-collateral-controller-api.php?collateralid=$1   [L]    # Handle Branch requests
+RewriteRule    ^groupcollateral-manager$                 controller/Manager-group-collateral-controller-api.php   [L]    # Handle Branch requests
+
+# active size
+RewriteRule    ^active-loans/([0-9]+)$          controller/loans-active-api.php?loanid=$1    [L]    # Handle Active id requests
+RewriteRule    ^active-loans$                 controller/loans-active-api.php   [L]    # Handle Active requests
+RewriteRule    ^active-loans-manager$                 controller/loans-active-api-manager.php   [L]    # Handle Active requests
+# shares
+RewriteRule    ^shares$                 controller/share-transactions-controller.php   [L]    # Handle Active requests
+# dashboards
+RewriteRule    ^dashboard-teller$                 controller/dashboard-api-teller.php   [L]    # Handle Active requests
+RewriteRule    ^dashboard-manager$                 controller/dashboard-api-manager.php   [L]    # Handle Active requests
+RewriteRule    ^dashboard-loans$                 controller/dashboard-api-loans.php   [L]    # Handle Active requests
+# Income apis
+#RewriteRule    ^incomes/([0-9]+)$                 controller/income-transactions-controller.php?transactionid=$1   [L]    # Handle Active requests
+#RewriteRule    ^incomes$                 controller/income-transactions-controller.php   [L]    # Handle Active requests
+RewriteRule    ^incomecat/([0-9]+)$                 controller/Sacco-income-cat-api.php?icatid=$1   [L]    # Handle Active requests
+RewriteRule    ^incomecat$                 controller/Sacco-income-cat-api.php   [L]    # Handle Active requests
+RewriteRule    ^managerincomescat/([0-9]+)$                 controller/Manager-sacco-income-cat-api.php?icatid=$1   [L]    # Handle Active requests
+RewriteRule    ^managerincomescat$                 controller/Manager-sacco-income-cat-api.php   [L]    # Handle Active requests
+
+RewriteRule    ^incomes/([0-9]+)$                 controller/sacco-income-api.php?incomeid=$1   [L]    # Handle Active requests
+RewriteRule    ^incomes$                 controller/sacco-income-api.php   [L]    # Handle Active requests
+RewriteRule    ^managerincomes/([0-9]+)$                 controller/Manager-sacco-income-api.php?incomeid=$1   [L]    # Handle Active requests
+RewriteRule    ^managerincomes$                 controller/Manager-sacco-income-api.php   [L]    # Handle Active requests
+
+# expense apis
+#bills
+RewriteRule    ^saccobills/([0-9]+)$                 controller/Sacco-bills-api.php?billid=$1   [L]    # Handle Active requests
+RewriteRule    ^saccobills$                 controller/Sacco-bills-api.php   [L]    # Handle Active requests
+#vendor
+RewriteRule    ^saccovendors/([0-9]+)$                 controller/Sacco-vendors-api.php?vendorsid=$1   [L]    # Handle Active requests
+RewriteRule    ^saccovendors$                 controller/Sacco-vendors-api.php   [L]    # Handle Active requests
+#manager bills
+RewriteRule    ^managersaccobill/([0-9]+)$                 controller/Manager-sacco-bills-api.php?billid=$1   [L]    # Handle Active requests
+RewriteRule    ^managersaccobill$                 controller/Manager-sacco-bills-api.php   [L]    # Handle Active requests
+#manager vendors
+RewriteRule    ^managersaccovendors/([0-9]+)$                 controller/Manager-sacco-vendors-api.php?vendorsid=$1   [L]    # Handle Active requests
+RewriteRule    ^managersaccovendors$                 controller/Manager-sacco-vendors-api.php   [L]    # Handle Active requests
+#pay bill
+RewriteRule    ^managerpaybill/([0-9]+)$                 controller/Manager-pay-bills-api.php?paybillid=$1   [L]    # Handle Active requests
+RewriteRule    ^managerpaybill$                 controller/Manager-pay-bills-api.php   [L]    # Handle Active requests
+RewriteRule    ^paybill/([0-9]+)$                 controller/Sacco-pay-bills-api.php?paybillid=$1   [L]    # Handle Active requests
+RewriteRule    ^paybill$                 controller/Sacco-pay-bills-api.php   [L]    # Handle Active requests
+RewriteRule    ^espenses/([0-9]+)$                 controller/expense-transactions-controller.php?transactionid=$1   [L]    # Handle Active requests
+RewriteRule    ^expenses$                 controller/expense-transactions-controller.php   [L]    # Handle Active requests
+RewriteRule    ^saccologged$                 controller/sacco-logged.php   [L]    # Handle Active requests
+RewriteRule    ^kin$                 controller/KinController.php   [L]    # Handle Active requests
+RewriteRule    ^kin/([0-9]+)$                 controller/KinController.php?nkinid=$1   [L]    # Handle Active requests
+RewriteRule    ^accountgroup/([a-z-A-Z-]*)$                 controller/Account-Group-Api.php?setting=$1   [L,QSA]    # Handle api requests
+RewriteRule    ^accountgroup/([a-z-A-Z-]*)/([0-9]+)$        controller/Account-Group-Api.php?setting=$1&value=$2   [L,QSA]    # Handle  api requests
+RewriteRule    ^accountgroup/([a-z-A-Z-]*)/([a-z-A-Z-]*)$     controller/Account-Group-Api.php?setting=$1&type=$2   [L,QSA]    # Handle  api requests
+RewriteRule    ^loanproduct$                 controller/Loan-Product-api.php   [L]    # Handle Active requests
+RewriteRule    ^loanproduct/([0-9]+)$            controller/Loan-Product-api.php?loanproduct=$1 [L,QSA]  # Handle  api requests
+RewriteRule    ^getloanproduct$                 controller/Get-loan-product-api.php   [L]    # Handle Active requests
+RewriteRule    ^getloanproduct/([0-9]+)$          controller/Get-loan-product-api.php?loanproduct=$1 [L,QSA]  # Handle  api requests
+RewriteRule    ^chartofaccounts$                                  controller/Chart-of-accounts-api.php [L] # Handle  api requests
+RewriteRule    ^chartofaccounts/([0-9]+)$                                  controller/Chart-of-accounts-api.php?accountgroupid=$1 [L,QSA]  # Handle  api requests
+RewriteRule    ^memberaccounts$                                  controller/Member-has-accounts-api.php [L] # Handle  api requests
+RewriteRule    ^memberaccounts/([0-9]+)$                                  controller/Member-has-accounts-api.php?memberaccountsid=$1 [L,QSA] # Handle  api requests
+#group has accounts
+RewriteRule    ^groupaccounts$                                  controller/Group-has-accounts-api.php [L] # Handle  api requests
+RewriteRule    ^groupaccounts/([0-9]+)$                                  controller/Group-has-accounts-api.php?groupaccountsid=$1 [L,QSA] # Handle  api requests
+RewriteRule    ^paymentmethod$                                  controller/Payment-methods-setting-api.php [L] # Handle  api requests
+RewriteRule    ^paymentmethod/([0-9]+)$                                  controller/Payment-methods-setting-api.php?paymentmethodid=$1 [L,QSA] # Handle  api requests
+RewriteRule    ^getpaymentmethod$                                  controller/Payment-methods-api.php [L] # Handle  api requests
+RewriteRule    ^getmemberaccounts/([0-9]+)$                                  controller/Get-member-accounts-api.php?memberid=$1 [L,QSA] # Handle  api requests
+RewriteRule    ^getmemberaccounts$                                  controller/Get-member-accounts-api.php [L] # Handle  api requests
+#account balance
+RewriteRule    ^getmemberaccountbal/([0-9]+)$                                  controller/Get-member-account-balance-api.php?memberaccountid=$1 [L] # Handle  api requests
+RewriteRule    ^getsaccoaccounts$                                  controller/Get-sacco-accounts-api.php [L] # Handle  api requests
+RewriteRule    ^getsaccoaccounts/([0-9]+)$                                  controller/Get-sacco-accounts-api.php?accountid=$1 [L,QSA] # Handle  api requests
+#get bank acount
+RewriteRule    ^getsaccobankaccounts$                                  controller/Get-sacco-bank-accounts-api.php [L] # Handle  api requests
+RewriteRule    ^getsaccobankaccounts/([0-9]+)$                                  controller/Get-sacco-bank-accounts-api.php?accountid=$1 [L,QSA] # Handle  api requests
+RewriteRule    ^systemdefault$                                  controller/System-default-setting-api.php [L] # Handle  api requests
+RewriteRule    ^systemdefault/([0-9]+)$                                  controller/System-default-setting-api.php?defaultid=$1 [L,QSA] # Handle  api requests
+RewriteRule    ^loanrollover$                                  controller/loan_rollover_settings.php [L] # Handle  api requests
+RewriteRule    ^loanrollover/([0-9]+)$                                  controller/loan_rollover_settings.php?loanrolloverid=$1 [L,QSA] # Handle  api requests
+RewriteRule    ^loanextrafeepayacc$                                  controller/Accounts-loan-extra-fees-api.php [L] # Handle  api requests
+RewriteRule    ^loanextrafeepayacc/([0-9]+)$                                  controller/Accounts-loan-extra-fees-api.php?loanextrafeeid=$1 [L,QSA] # Handle  api requests
+RewriteRule    ^mangerbudgetting$                                  controller/Manager-budget-controller-api.php [L] # Handle  api requests
+RewriteRule    ^mangerbudgetting/([0-9a-zA-Z-]+)$                                  controller/Manager-budget-controller-api.php?datebudget=$1 [QSA,NC,L] # Handle  api requests
+RewriteRule    ^saccobudgetting$                                  controller/Sacco-budget-controller-api.php [L] # Handle  api requests
+RewriteRule    ^loanguarantor$                                  controller/Loan-guarantor-controller-api.php [L] # Handle  api requests
+RewriteRule    ^loanguarantor/([0-9]+)$                                  controller/Loan-guarantor-controller-api.php?guarantorid=$1 [L] # Handle  api requests
+RewriteRule    ^managerloanguarantor$                                  controller/Manager-loan-guarantor-controller-api.php [L] # Handle  api requests
+RewriteRule    ^managerloanguarantor/([0-9]+)$                  controller/Manager-loan-guarantor-controller-api.php?guarantorid=$1 [L] # Handle  api requests
+RewriteRule    ^processloan/([0-9]+)$                  controller/Process-loan-controller-api.php?loanappid=$1 [L] # Handle  api requests
+RewriteRule    ^processloan-manager/([0-9]+)$                  controller/Manager-process-loan-controller-api.php?loanappid=$1 [L] # Handle  api requests
+RewriteRule    ^groupprocessloan/([0-9]+)$                  controller/Group-process-loan-controller-api.php?loanappid=$1 [L] # Handle  api requests
+RewriteRule    ^processloan-manager/([0-9]+)$                  controller/Manager-group-process-loan-controller-api.php?loanappid=$1 [L] # Handle  api requests
+#get loan schedule for approve and reject
+RewriteRule    ^approverejectschedule/([0-9]+)$                  controller/Get-loan-schedule-controller-api.php?loanappid=$1 [L] # Handle  api requests
+RewriteRule    ^loan-disburse$                                  controller/Disburse-loans-controller-api.php [L] # Handle  api requests
+RewriteRule    ^loan-disburse/([0-9]+)$                                  controller/Disburse-loans-controller-api.php?loanappid=$1 [L] # Handle  api requests
+RewriteRule    ^loandisburse-manager$                                  controller/Manager-disburse-loans-controller-api.php [L] # Handle  api requests
+RewriteRule    ^loandisburse-manager/([0-9]+)$                                  controller/Manager-disburse-loans-controller-api.php?loanappid=$1 [L] # Handle  api requests
+RewriteRule    ^grouploan-disburse$                                  controller/Group-disburse-loans-controller-api.php [L] # Handle  api requests
+RewriteRule    ^grouploan-disburse/([0-9]+)$                                  controller/Group-disburse-loans-controller-api.php?loanappid=$1 [L] # Handle  api requests
+RewriteRule    ^grouploandisburse-manager$                                  controller/Manager-disburse-group-loans-controller-api.php [L] # Handle  api requests
+RewriteRule    ^grouploandisburse-manager/([0-9]+)$                                  controller/Manager-disburse-group-loans-controller-api.php?loanappid=$1 [L] # Handle  api requests
+RewriteRule    ^loancalculator$                                  controller/Loan-calculator-controller-api.php [L] # Handle  api requests
+RewriteRule    ^cancelledloanapp$                                  controller/Cancel-loan-application-api.php [L] # Handle  api requests
+RewriteRule    ^cancelledloanapp/([0-9]+)$                                  controller/Cancel-loan-application-api.php?loanid=$1 [L] # Handle  api requests
+RewriteRule    ^cancelledgrouploanapp$                                  controller/Group-cancel-loan-application-api.php [L] # Handle  api requests
+RewriteRule    ^cancelledgrouploanapp/([0-9]+)$                                  controller/Group-cancel-loan-application-api.php?loanid=$1 [L] # Handle  api requests
+RewriteRule    ^getmemberloans/([a-z-A-Z-]*)/([0-9]+)$        controller/Member-loan-application-api.php?loanstatus=$1&memberid=$2   [L,QSA]    # Handle  api requests
+RewriteRule    ^getgrouploans/([a-z-A-Z-]*)/([0-9]+)$        controller/Group-loan-application-api.php?loanstatus=$1&memberid=$2   [L,QSA]    # Handle  api requests
+RewriteRule    ^rescheduleloan$                                  controller/Reschedule-loans-controller-api.php [L] # Handle  api requests
+RewriteRule    ^rescheduleloan/([0-9]+)$                                  controller/Reschedule-loans-controller-api.php?rescheduledid=$1 [L] # Handle  api requests
+RewriteRule    ^reschedulegrouploan$                                  controller/Reschedule-group-loans-controller-api.php [L] # Handle  api requests
+RewriteRule    ^reschedulegrouploan/([0-9]+)$                                  controller/Reschedule-group-loans-controller-api.php?rescheduledid=$1 [L] # Handle  api requests
+RewriteRule    ^loansreport/([a-z-A-Z-]*)$        controller/Loans-reports-controller-api.php?loanstatus=$1  [L]    # Handle  api requests
+RewriteRule    ^grouploansreport/([a-z-A-Z-]*)$        controller/Group-loans-reports-controller-api.php?loanstatus=$1 [L]    # Handle  api requests
+RewriteRule    ^generalledger/([a-z-A-Z-]*)$        controller/Transaction-reports-controller-api.php?transaction=$1 [L]    # Handle  api requests

@@ -1,0 +1,83 @@
+# Fix for Apache AUTHORIZATION http header as it is stripped by default for security and should be
+# enabled explicity when needed
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$1 #disabled now
+
+# turn off cache
+Header set Cache-Control "no-cache, no-store, must-revalidate"
+Header set Pragma "no-cache"
+Header set Expires 0
+#order deny allow
+#allow from all
+Options -Indexes
+
+RewriteEngine On    # Turn on the rewriting engine
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#pages rewrite rules sacco
+RewriteRule    ^auth$         login-sacco.php             [L]     # Handle page rewrite URL
+RewriteRule    ^signup/signup/sacco$       register-sacco.php          [L]     # Handle page rewrite URL
+RewriteRule    ^dashboard$    dashboard-sacco.php         [L]     # Handle page rewrite URL
+RewriteRule    ^branches$     branches-sacco.php          [L]     # Handle page rewrite URL
+RewriteRule    ^staff$        staff-users.php             [L]     # Handle page rewrite URL
+RewriteRule    ^members-all$      member-accounts.php             [L]     # Handle page rewrite URL
+RewriteRule    ^sacco$        sacco-settings.php             [L]     # Handle page rewrite URL
+RewriteRule    ^accounts$        accounts-settings.php             [L]     # Handle page rewrite URL
+RewriteRule    ^password$     password-sacco.php             [L]     # Handle page rewrite URL
+RewriteRule    ^reports$     password-reports.php             [L]     # Handle page rewrite URL
+RewriteRule    ^communication$     sacco-comm.php             [L]     # Handle page rewrite URL
+RewriteRule    ^activity$     activity-sacco.php             [L]     # Handle page rewrite URL
+
+# page rewrite rules users
+RewriteRule    ^teller$     dashboard-teller.php             [L]     # Handle page rewrite URL
+RewriteRule    ^manager$     dashboard-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^loans$     dashboard-loans.php             [L]     # Handle page rewrite URL
+RewriteRule    ^login$         login-users.php             [L]     # Handle page rewrite URL
+RewriteRule    ^members$      member-accounts-users.php             [L]     # Handle page rewrite URL
+RewriteRule    ^manmembers$      member-accounts-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^members-loans$      member-accounts-loans.php             [L]     # Handle page rewrite URL
+RewriteRule    ^savings-all$      members-savings.php             [L]     # Handle page rewrite URL
+RewriteRule    ^savexgroup$      Group-savings.php             [L]     # Handle page rewrite URL
+RewriteRule    ^savings-manager$      members-savings-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^withdraws-all$    members-withdraws.php             [L]     # Handle page rewrite URL
+RewriteRule    ^withdraws-manager$    members-withdraws-manager.php             [L]     # Handle page rewrite URL
+#client to client withdraw
+RewriteRule    ^clienttoclient$    members-transfers.php             [L]     # Handle page rewrite URL
+RewriteRule    ^oclienttogroup$    Client-to-group-transfers.php            [L]     # Handle page rewrite URL
+RewriteRule    ^fixed-all$    members-fixed-savings.php             [L]     # Handle page rewrite URL
+RewriteRule    ^fixed-manager$    members-fixed-savings-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^shares$    members-shares-deposits.php             [L]     # Handle page rewrite URL
+RewriteRule    ^allsharesmanager$    members-shares-deposits-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^upassword$   password-sacco-user.php             [L]     # Handle page rewrite URL
+RewriteRule    ^password-manager$   password-sacco-user-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^password-loans$   password-sacco-user-loans.php             [L]     # Handle page rewrite URL
+RewriteRule    ^ureports$   reports-sacco-user.php             [L]     # Handle page rewrite URL
+RewriteRule    ^reports-manager$   reports-sacco-user-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^reports-loans$   reports-sacco-user-loans.php             [L]     # Handle page rewrite URL
+RewriteRule    ^uactivity$   activity-user.php             [L]     # Handle page rewrite URL
+RewriteRule    ^activity-manager$   activity-user-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^activity-loans$   activity-user-loans.php             [L]     # Handle page rewrite URL
+RewriteRule    ^application$   members-loans.php             [L]     # Handle page rewrite URL
+RewriteRule    ^xgroup$   groups-loans.php             [L]     # Handle page rewrite URL
+RewriteRule    ^loans-application-manager$   members-loans-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^processloaan$        sacco-loan-processing.php             [L]     # Handle page rewrite URL//
+RewriteRule    ^approvelons$        sacco_loan_approval.php             [L]     # Handle page rewrite URL//
+RewriteRule    ^collaterals$   members-loans-collateral.php             [L]     # Handle page rewrite URL
+RewriteRule    ^disburseloan$        sacco_disburse_loan.php             [L]     # Handle page rewrite URL//
+RewriteRule    ^loancalculator$        sacco-loan-calculator.php             [L]     # Handle page rewrite URL//
+RewriteRule    ^cancelloanapp$        sacco-loan-cancelation.php             [L]     # Handle page rewrite URL//
+
+
+RewriteRule    ^loans-active$   member-active-loans.php             [L]     # Handle page rewrite URL
+RewriteRule    ^loans-active-manager$   member-active-loans-manager.php             [L]     # Handle page rewrite URL
+
+RewriteRule    ^incomes$   income-deposits-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^expenses$   income-expense-manager.php             [L]     # Handle page rewrite URL
+RewriteRule    ^kin$      next_of_kin.php             [L]     # Handle page rewrite URL
+RewriteRule    ^details$      view-member.php             [L]     # Handle page rewrite URL
+RewriteRule    ^withdrawsettings$        sacco-withdraw-settings.php             [L]     # Handle page rewrite URL
+RewriteRule    ^fixeddepositsettings$     sacco-fixed-deposit-settings.php             [L]     # Handle page rewrite URL
+RewriteRule    ^paymentmethods$            payment-method-settings.php             [L]     # Handle page rewrite URL
+RewriteRule    ^attach$            member-attach_accounts.php             [L]     # Handle page rewrite URL
+RewriteRule    ^chkgroup$            group-attach_accounts.php             [L]     # Handle page rewrite URL
+RewriteRule    ^groups$            group-accounts.php             [L]     # Handle page rewrite URL

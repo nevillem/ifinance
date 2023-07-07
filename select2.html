@@ -1,0 +1,203 @@
+<!-- Custom stylesheet - for your changes-->
+<link rel="stylesheet" href="assets/css/custom.css">
+<link rel="stylesheet" href="assets/css/select2-bootstrap5theme.min.css">
+<link href="assets/css/select2.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome CSS-->
+<link rel="stylesheet" href="assets/css/all.min.css">
+<!-- orion icons-->
+<link rel="stylesheet" href="assets/css/orionicons.css">
+<!-- material design icons -->
+<link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
+<!-- theme stylesheet-->
+<link rel="stylesheet" href="assets/css/style.default.css" id="theme-stylesheet">
+<!-- Favicon-->
+<link rel="shortcut icon" href="assets/img/favicon.png?3">
+<!-- sweetalerts -->
+<link rel="stylesheet" href="assets/css/sweetalert2.min.css">
+<!-- datatables css-->
+<link href="assets/css/datatables.min.css" rel="stylesheet">
+<!-- table responsiveness -->
+<link href="assets/css/dataTables.responsive.css" rel="stylesheet">
+<!-- select 2 -->
+<!-- progress bar -->
+<link rel='stylesheet' href='assets/css/nprogress.css'>
+    <!-- dropify -->
+<link rel='stylesheet' href='assets/css/dropify.min.css'>
+<link rel="stylesheet" href="assets/css/searchPanes.dataTables.min.css">
+<link rel="stylesheet" href="assets/css/select.dataTables.min.css">
+<link rel="stylesheet" href="assets/css/dataTables.dateTime.min.css">
+<!-- dark mode -->
+<!-- <link rel="stylesheet" href="assets/css/dark-mode.css"> -->
+<link rel="stylesheet" href="assets/css/styles/dashboard.css">
+<link rel="stylesheet" href="assets/css/styles/popup.css">
+<link rel="stylesheet" href="assets/css/virtual-select.min.css">
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/css/select2.min.css" rel="stylesheet" /> -->
+<style media="screen">
+
+.select2, .typeahead.tt-input, .typeahead.tt-hint, .select2-container--default .select2-search--dropdown .select2-search__field {
+    display: block;
+    /*width: 100%;*/
+     height: auto;
+    padding: 0.469rem 0.8rem !important;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    /*appearance: none; */
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.select2-container--focus.select2-container--default .select2-selection--single,
+ .select2-container--focus.select2-container--default .select2-selection--multiple {
+  /* border: 1px solid #ced4da;*/
+    border: none;
+}
+  .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+      color: #fff;
+      opacity: 0.5;
+  }
+</style>
+<!-- <select type="text" data-placeholder="Select class" id="class_ids" name="class_id[]" multiple="" class="form-control m-input m-input--air requirement_class select2-hidden-accessible" tabindex="-1" aria-hidden="true"> -->
+<!-- <select name="class_ids" id="class_ids"  class="border-5 form-control-md" required>
+<option value="1">Baby</option>
+<option value="2">Middle</option>
+<option value="3">Top</option>
+<option value="4">P.1</option>
+<option value="5">P.2</option>
+<option value="6">P.3</option>
+<option value="7">P.4</option>
+<option value="8">P.5</option>
+<option value="9">P.6</option>
+<option value="10">P.7</option>
+</select> -->
+
+<form id="formgroup" action="" method="post">
+
+  <div class="form-group col-md-6">
+    <lable id="f-deposit-account" class="form-label">Select SACCO Member</lable>
+    <select  id="sacco_group" name="sacco_group" data-placeholder="Select group" multiple=""  class="border-5 form-control-md " required>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+    <lable id="f-deposit-account" class="form-label">Select SACCO Member</lable>
+    <input  id="house" name="house"  class="border-5 form-control-md " required/>
+  </div>
+  <input type="submit" name="submit" value="Submit"/>
+</form>
+
+
+<select id="states" multiple style="width:300px" class="form-control">
+    <option>Alaska</option>
+    <option>Arizona</option>
+    <option>California</option>
+    <option>Florida</option>
+    <option>Hawaii</option>
+    <option>illinois</option>
+    <option>Michigan</option>
+    <option>North Dacota</option>
+    <option>Ohio</option>
+    <option>Washington</option>
+</select>
+<input id="chkall" type="checkbox" >Select All
+
+<!-- JavaScript files-->
+        <!-- jquery libarary -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+    <!-- popper library -->
+<script src="assets/vendor/popper.js/umd/popper.min.js"> </script>
+    <!-- bootstrap library -->
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- the jquery cookie library  -->
+<script src="assets/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <!-- the cookie library  -->
+<script src="assets/js/cookie.min.js"></script>
+    <!-- sweetalert library -->
+<script src="assets/js/sweetalert2.min.js"></script>
+    <!-- jquery validate library -->
+<script src="assets/js/jquery.validate.min.js"></script>
+    <!-- jquery additional methods  -->
+<script src="assets/js/additional-methods.min.js"></script>
+    <!-- datatables js -->
+<script src="assets/js/datatables.min.js"></script>
+    <!-- datatables custome js
+<script src="assets/js/custom.js"></script> -->
+    <!-- front end js  -->
+<script src="assets/js/front.js"></script>
+    <!-- select2.min.js -->
+<script src="assets/js/select2.full.min.js"></script>
+<!-- nprogress -->
+<script src='assets/js/nprogress.js'></script>
+<!-- dropify -->
+<script src='assets/js/dropify.min.js'></script>
+<!-- pdf script -->
+<!-- <script src='assets/js/pdf.html.js'></script> -->
+<script src="assets/js/jspdf.umd.min.js"></script>
+<script src="assets/js/html2canvas.min.js" ></script>
+<script src="middlewares/user/global-user.js"></script>
+<script src="assets/js/dataTables.searchPanes.min.js"></script>
+<script src="assets/js/dataTables.select.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/dataTables.dateTime.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.tablesorter.min.js"></script>
+<!-- <script src="assets/js/dark-mode-switch.min.js"></script> -->
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    async function getGroups() {
+      $.ajax({
+          url: base + "groups",
+          headers: {
+              'Authorization': localStorage.token,
+              'Content-Type': 'application/json'
+          },
+          type: "GET",
+          success: function(response) {
+              nums = response.data.rows_returned;
+              for (var i = 0; i < nums; i++) {
+                  var groups = '';
+                  groups += '<option value=' + response.data.groups[i].id + '>' + response.data.groups[i].account +'-' + response.data.groups[i].groupname + '</option>';
+                  $('#sacco_group').append(groups);
+              }
+
+              $('#sacco_group').select2({
+                        // theme: 'bootstrap5',
+                        // width: 'resolve',
+                    });
+
+          },
+          error: function(xhr){
+                  if (xhr.status == '401') {
+                    getGroups()
+                  }
+          }
+      })
+  }
+  getGroups()
+
+  $('#formgroup').submit(function(event) {
+          event.preventDefault();
+          if ($('#formgroup').valid()) {
+            groupSavingsform=$(this);
+          var formData=JSON.stringify(groupSavingsform.serializeObject());
+              //   cancelIdleCallback
+              console.log(formData);
+          }
+      });
+
+      $('#states').select2();
+      // $('#class_ids').select2({});
+      $("#chkall").click(function(){
+          if($("#chkall").is(':checked')){
+              $("#states > option").prop("selected", "selected");
+              $("#states").trigger("change");
+          } else {
+              $("#states > option").removeAttr("selected");
+              $("#states").trigger("change");
+          }
+      });
+  });
+</script>

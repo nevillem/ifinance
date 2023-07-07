@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal-event">Open Modal</button>
+<div id="myModal-event" class="modal fade in" role="dialog">
+  <div role="document" style="width:600px;position:relative;margin:auto;margin-top:10px;">
+    <div class="modal-content" style="border:0;"> 
+      <div style="margin-top: 10px;" role="document" class="modal-dialog event-planner">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="myModalLabel" class="modal-title">Event Details</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-sm-12">
+                <div class="event-title">
+                NewDemoEvent5
+                <input name="hid_event_id" id="hid_event_id" value="501" type="hidden">
+                </div>
+                <ul id="popover-content" class="list-group" style="display: none">
+                  <a data-dismiss="modal">Edit Event</a>
+                  <a href="#" class="list-group-item">Invite Members</a>
+                  <a href="#" class="list-group-item">Delete Event</a>
+                </ul>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal-edit-event" class="modal fade" role="dialog">
+  <div role="document" style="width:600px;position:relative;margin:auto;margin-top:10px;">
+    <div class="modal-content" style="border:0;">
+      <div class="modal-header">
+        <h4 id="myModalLabel" class="modal-title">Event Details</h4>
+      </div>
+      <div class="modal-body"> Loading Mannu... </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+      </div>
+    </div>    
+  </div>
+</div>
+        <!-- jquery libarary -->
+        <script src="assets/vendor/jquery/jquery.min.js"></script>
+        <!-- popper library -->
+<script>
+  
+$(document).ready(function(){
+	$('#myModal-event').on('hidden.bs.modal', function () {
+		$('#myModal-edit-event').modal('show');
+	 });
+});
+</script>
+</body>
+</html>

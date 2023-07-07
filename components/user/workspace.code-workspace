@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\..\\..\\projects\\Personal-Projects"
+		},
+		{
+			"path": "..\\..\\.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "irembo_version_control"
+	}
+}

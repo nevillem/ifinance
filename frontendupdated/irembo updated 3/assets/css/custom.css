@@ -1,0 +1,224 @@
+/* your styles go here */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #666666;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #F9C404;
+}
+
+/* Profile */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #7CF29C;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+select, .form-control, .select2{
+  display: block;
+  width: 100%;
+  height: 2.875rem;
+  padding: 0.875rem 1.375rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #495057;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.select2{
+  background-color: #f3f3f3 !important;
+}
+/* select .form-control {
+  border:0px;
+  outline:0px;
+} */
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #7CF29C;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 3px solid !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+.project-tab .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #7CF29C;
+    font-size: 16px;
+    font-weight: 600;
+}
+.project-tab .nav-link:hover {
+    border: none;
+}
+.project-tab thead{
+    background: #f3f3f3;
+    color: #333;
+}
+.project-tab a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+.loader {
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 175px;
+    top: 52px;
+    bottom: 0px;
+    margin-left: -175px;
+    overflow-y: auto;
+    background: #222222;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+/* .no-display-for-devices{
+  background: url(../img/back.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+.loader {
+  border-top: 4px solid #5C7AEA;
+ border-right: 4px solid #73B41A;
+ border-bottom: 4px solid #F9C404;
+ border-left: 4px solid #454545;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.4s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.loading{
+  display: none;
+}
+
+.box{
+  padding:10px 0px;
+}
+
+.box-part{
+  background:#FFF;
+  border-radius:0;
+  padding:10px 10px;
+  margin:10px 0px;
+}
+
+.text{
+  margin:10px 0px;
+}
+
+  #middledata,#contactinfo,#documentsinfo {
+    display:none;
+  }
+  #contactinfo_update,#documentsinfo_update {
+    display:none;
+  }
+  .modal-body{
+    font-size: 0.6 !important;
+  }
+  .modal{
+    margin-top: 20px;
+  }
+  .modal-title{
+      font-size: 0.8rem;
+  }
+  .form-account-add-single-member{
+    /*display: none;*/
+  }
+  .error{
+    border-color: #dc3545 !important;
+    color: #dc3545 !important;
+  }

@@ -1,0 +1,136 @@
+[28-Nov-2022 07:10:34 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 07:11:20 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 07:22:35 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 07:51:48 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 07:57:36 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 07:59:12 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:04:26 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:06:49 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:23:28 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Member::__construct(), 18 passed in /home/irembo/api.v2.irembofinance.com/controller/Members-api.php on line 516 and at least 23 expected in /home/irembo/api.v2.irembofinance.com/model/Member.php:62
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/Members-api.php(516): Member->__construct('1681', 'Isabella', 'Ayebare', '751714181', 'female', '', 'Mitooma, Kaziko...', '1997-11-11', '2021-11-15', 'CF00000000000', 'active', 'individual', '100800002', '', '0.00', NULL, NULL, NULL)
+#1 {main}
+  thrown in /home/irembo/api.v2.irembofinance.com/model/Member.php on line 62
+[28-Nov-2022 08:24:37 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:29:40 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:31:59 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:38:51 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:43:01 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:54:29 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:56:09 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:56:48 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:57:07 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:58:11 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 08:58:55 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php on line 32
+[28-Nov-2022 12:22:19 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-api.php:496
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-api.php(496): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 12:22:35 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-api.php:496
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-api.php(496): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 14:16:43 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-api.php:496
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-api.php(496): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 14:33:10 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Saccos-api.php on line 34
+[28-Nov-2022 14:33:10 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/dashboard-api.php on line 35
+[28-Nov-2022 14:33:10 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/dashboard-api.php on line 35
+[28-Nov-2022 14:33:10 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/dashboard-api.php on line 35
+[28-Nov-2022 14:33:23 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:23 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/sacco-logged.php on line 32
+[28-Nov-2022 14:33:23 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:23 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/dashboard-api-teller.php on line 33
+[28-Nov-2022 14:33:23 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:23 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:23 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:23 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:24 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:24 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:24 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:24 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:25 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:25 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:25 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:25 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:25 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:25 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:26 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:26 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/saccoInformationUser.php on line 30
+[28-Nov-2022 14:33:26 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:33:26 UTC] PHP Notice:  Undefined index: HTTP_AUTHORIZATION in /home/irembo/api.v2.irembofinance.com/controller/Users-update.php on line 33
+[28-Nov-2022 14:35:06 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 16:57:18 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 18:15:52 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[28-Nov-2022 18:51:45 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php:497
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-user-api.php(497): PDO->prepare('select * from a...')
+#1 {main}
+[29-Nov-2022 05:31:11 UTC] Database Query Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'irembo_sandbox.account_types' doesn't exist in /home/irembo/api.v2.irembofinance.com/controller/settings-api.php:496
+Stack trace:
+#0 /home/irembo/api.v2.irembofinance.com/controller/settings-api.php(496): PDO->prepare('select * from a...')
+#1 {main}
