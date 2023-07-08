@@ -1,1 +1,0 @@
-<a href="#" class=\'deletemember\' id=' + response.data.members[i].id + '><i class="text-danger fa fa-remove fa-1.5x"></i></a>
